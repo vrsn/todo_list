@@ -9,12 +9,6 @@ app = FastAPI(title="simple ToDo list")
 redis_client = get_redis_client()
 
 
-# todo: remove
-@app.get("/test/redis")
-def test_redis():
-    return redis_client.test_connection()
-
-
 @app.get("/")
 def root():
     return "Working. Go to /docs for API descriptions"

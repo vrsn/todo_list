@@ -13,13 +13,6 @@ class RedisClient:
             decode_responses=True,
         )
 
-    # todo: remove
-    def test_connection(self):
-        self.cache.set('test', 'testing - fine')
-        res = self.cache.get('test')
-        self.cache.delete('test')
-        return res
-
     def add_or_replace_todo_item(self, todo_item: ToDoItem, list_name: str = TODO_LIST_HARDCODED_NAME):
         return self.cache.hset(list_name, todo_item.item_id, todo_item.description)
 
